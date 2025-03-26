@@ -1,0 +1,27 @@
+{
+  "name": "Agenda Pet",
+  "description": "Sistema de agendamento para petshop",
+  "author": "Pedro Pinas",
+  "scripts": {
+    "build": "webpack",
+    "server": "json-server --watch server.json --port 3333",
+    "dev": "webpack server --mode development"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "inputmask": "^5.0.9",
+    "json-server": "^1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "babel-loader": "^9.1.3",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  }
+}

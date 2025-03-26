@@ -1,0 +1,189 @@
+.form {
+  display: none;
+  margin: auto;
+  max-width: 512px;
+
+  background-color: #23242c;
+  border-radius: 0.75rem;
+
+  padding: 2.344rem 2.5rem;
+  padding-bottom: 1.5rem;
+
+  flex-direction: column;
+}
+
+.form.open {
+  display: flex;
+}
+
+.container-blur {
+  display: none;
+}
+
+.container-blur.open {
+  display: flex;
+  margin: auto;
+  background: transparent;
+  backdrop-filter: blur(5px);
+}
+
+.form > header {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+
+  margin-bottom: 1.75rem;
+  max-width: 100%;
+}
+
+.form > header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.form > header p {
+  color: #98959d;
+  font-size: 0.87rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  height: 3rem;
+
+  border: 1px solid #3e3c41;
+  padding: 0.87rem 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+}
+
+.input i {
+  margin-right: 0.5rem;
+}
+
+.input input,
+.input select {
+  flex: 1;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 1rem;
+  color: #98959d;
+  background-color: transparent;
+
+  outline: none;
+  border: none;
+}
+
+.input:focus-within {
+  border: 1.5px solid #9282fa;
+}
+
+.button {
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 0.87rem;
+  background-color: #9282fa;
+  color: #050505;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #bdb4fa;
+}
+
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  background: url("../assets/arrow-down.svg") no-repeat;
+}
+
+.hours {
+  list-style: none;
+
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  margin-bottom: 2rem;
+}
+
+.hour {
+  width: 4.87rem;
+  height: 2.5rem;
+
+  border-radius: 0.5rem;
+
+  font-size: 1rem;
+  border: 1px solid #3e3c41;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hour-period {
+  width: 100%;
+  color: #98959d;
+  font-size: 0.87rem;
+
+  margin-top: 0.75rem;
+}
+
+.hour-available {
+  background-color: #2e2c30;
+}
+
+.hour-unavailable {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+.hour-selected {
+  border: 1px solid #9282fa;
+  color: #9282fa;
+}
+
+.hour:not(.hour-unavailable):hover {
+  border: 1px solid #9282fa;
+  color: #9282fa;
+}
+
+@media (max-width: 1100px) {
+  .form {
+    overflow-y: auto;
+    max-width: 100%;
+  }
+}
+
+.form.invisible {
+  display: none;
+}
+
+.column-break {
+  display: flex;
+  gap: 1rem;
+}
+
+.column-break > div {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
