@@ -10,3 +10,5 @@ import "./styles/schedule.css"
 
 ///JS
 import "./modules/scripts.js"
+import "./modules/form/submit.js"
+import "./modules/loaders/render-schedules.js"

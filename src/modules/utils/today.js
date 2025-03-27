@@ -1,0 +1,1 @@
+export const today = dayjs(new Date()).format("YYYY-MM-DD");

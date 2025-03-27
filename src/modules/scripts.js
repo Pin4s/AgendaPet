@@ -32,6 +32,7 @@ const periodNightList = document.getElementById('period-night');
 //Variavel que recebe o valor do date input
 let selectedDate = dateInput.value;
 
+//JA FOI
 export function todayDate() {
     dateInputMain.value = dayjs(new Date()).format("YYYY-MM-DD");
     console.log(
@@ -52,10 +53,6 @@ dialog.addEventListener("toggle", () => {
         dialogButton.style.display = "none";
     }
 
-    console.log("**** By: dialog.addEventListenear ****");
-    console.log("**    Toggle event aconteceu!!      **");
-    console.log("**   O botão está com display:", hideButton, "**");
-    console.log("**************************************");
     dialog.classList.toggle("open");
     containerBlur.classList.toggle("open");
 });
@@ -66,9 +63,10 @@ dateInput.addEventListener("change", () => {
     dialogDate(dateInput.value)
     console.log("Data selecionada:", data);
     return data
-    
+
 })
 
+//JA FOI
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -94,11 +92,12 @@ form.addEventListener("submit", async (event) => {
 
     await registerSchedule(formData)
     renderSchedules(dateInputMain.value)
-    hoursLoad(selectedDateValue)
-    dialogDate(selectedDateValue) 
+    availableHoursFlter(selectedDateValue)
+    dialogDate(selectedDateValue)
 
 })
 
+//JA FOI
 export function dialogDate(date) {
     dateInput.value = date
     console.log("Data do dialog", dateInput.value, dateInput);
@@ -106,7 +105,8 @@ export function dialogDate(date) {
     dateInput.setAttribute("min", today);
 }
 
-export async function hoursLoad(dataSelected) {
+//JA FOI
+export async function availableHoursFlter(dataSelected) {
     try {
         selectHour.innerHTML = ""
 
@@ -127,14 +127,14 @@ export async function hoursLoad(dataSelected) {
             if (dayjs(dataSelected).isSame(dayjs(), 'day')) {
                 const now = dayjs()
                 const currentHour = now.format("HH:mm")
-                if (!isOccupied && hour > currentHour) { 
+                if (!isOccupied && hour > currentHour) {
                     const options = document.createElement("option")
                     options.value = hour
                     options.textContent = hour
                     selectHour.appendChild(options)
                 }
             } else {
-                if (!isOccupied) { 
+                if (!isOccupied) {
                     const options = document.createElement("option")
                     options.value = hour
                     options.textContent = hour
@@ -155,11 +155,12 @@ export async function hoursLoad(dataSelected) {
     }
 }
 
-export function unavailableHours() {
-    
+//JA FOI
+export function blockHoursPast() {
+
     const now = dayjs();
-    const hour = now.format("HH:mm"); 
-    const today = dayjs().format("YYYY-MM-DD"); 
+    const hour = now.format("HH:mm");
+    const today = dayjs().format("YYYY-MM-DD");
     const options = timeSelect.querySelectorAll("option");
 
     if (dateInput.value == today) {
@@ -175,6 +176,7 @@ export function unavailableHours() {
     console.log("Valor de date.input: ", dateInput.value);
 }
 
+//JA FOI
 function createScheduleItem(schedule) {
     const listItem = document.createElement('li');
     listItem.dataset.id = schedule.id
@@ -225,6 +227,7 @@ function createScheduleItem(schedule) {
     return listItem;
 }
 
+//JA FOI
 async function renderSchedules(date) {
 
     periodMorningList.innerHTML = '';
@@ -233,10 +236,10 @@ async function renderSchedules(date) {
 
     try {
         const response = await fetch(`${apiConfig.baseURL}/schedules`);
-        const data = await response.json(); 
+        const data = await response.json();
 
         if (Array.isArray(data)) {
-            const schedules = data; 
+            const schedules = data;
 
             const filteredSchedules = schedules.filter(schedule => schedule.date === date);
 
@@ -285,6 +288,7 @@ async function renderSchedules(date) {
     }
 }
 
+//JA FOI EM API
 export async function removeSchedule(id) {
     try {
         await fetch(`${apiConfig.baseURL}/schedules/${id}`, {
@@ -304,7 +308,7 @@ phoneInput.addEventListener("input", (event) => {
 
 
     if (phoneValue.length > 11) {
-        phoneValue = phoneValue.slice(0, 11); 
+        phoneValue = phoneValue.slice(0, 11);
     }
 
     if (phoneValue.length <= 10) {
@@ -322,12 +326,15 @@ dateInputMain.addEventListener("change", () => {
     renderSchedules(selectedDate);
 });
 
+//JA FOI
 window.addEventListener("DOMContentLoaded", () => {
     renderSchedules(dateInputMain.value);
+
+
 })
 
-
+//vai pra scripts.js
 todayDate();
 dialogDate(today);
-hoursLoad(dateInput.value); 
-unavailableHours();
+availableHoursFlter(dateInput.value);
+blockHoursPast();
