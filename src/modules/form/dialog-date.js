@@ -1,4 +1,4 @@
-import { dateInput } from "../utils/DOM-Constent/form-consts";
+import { dateInput } from "../utils/DOM-Content/form-content";
 import { today } from "../utils/today";
 
 export function dialogDate(date) {

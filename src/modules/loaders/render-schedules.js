@@ -1,6 +1,6 @@
-import { periodMorningList, periodAfternoonList, periodNightList } from "../utils/DOM-Constent/schedules-on-main-page-consts";
+import { periodMorningList, periodAfternoonList, periodNightList } from "../utils/DOM-Content/schedules-on-main-page-content";
 import { createScheduleItem } from "./create-schedule-item";
-import { dateInputMain } from "../utils/DOM-Constent/schedules-on-main-page-consts";
+import { dateInputMain } from "../utils/DOM-Content/schedules-on-main-page-content";
 import { apiConfig } from "../../services/api-config";
 import { todayDate } from "../schedule/today-date";
 import dayjs from "dayjs";

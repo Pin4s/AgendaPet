@@ -1,9 +1,4 @@
-/////////////////////////////////////////////////////////////
-// ARQUIVO RESPONSÁVEL POR ENVIAR OS DADOS PARA O SERVIDOR //
-/////////////////////////////////////////////////////////////
 
-
-//Importando a baseURL
 import { apiConfig } from "./api-config";
 
 export async function registerSchedule(formData) {

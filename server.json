@@ -1,40 +1,5 @@
 {
   "schedules": [
-    {
-      "id": "3c42",
-      "client": "Jão ped pina",
-      "pet": "Mel",
-      "phone": "(33) 9 9999-5294",
-      "description": "Banho e unhas 💅",
-      "date": "2025-03-29",
-      "hour": "19:00"
-    },
-    {
-      "id": "bb77",
-      "client": "Pinas",
-      "pet": "Cehdar",
-      "phone": "(33) 9 9999-5294",
-      "description": "Tosa be a ndo ",
-      "date": "2025-03-27",
-      "hour": "12:00"
-    },
-    {
-      "id": "1f7f",
-      "client": "Pinas",
-      "pet": "Cehdar",
-      "phone": "(33) 9 9999-5294",
-      "description": "Tosa be a ndo ",
-      "date": "2025-03-27",
-      "hour": "13:00"
-    },
-    {
-      "id": "83bf",
-      "client": "Pinas",
-      "pet": "Cehdar",
-      "phone": "(33) 9 9999-5294",
-      "description": "Tosa be a ndo ",
-      "date": "2025-03-27",
-      "hour": "20:00"
-    }
+
   ]
 }

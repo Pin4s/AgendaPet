@@ -1,4 +1,4 @@
-import { dateInputMain } from "../utils/DOM-Constent/schedules-on-main-page-consts";
+import { dateInputMain } from "../utils/DOM-Content/schedules-on-main-page-content";
 import { removeSchedule } from "../../services/remove-schedule";
 import { renderSchedules } from "./render-schedules";
 

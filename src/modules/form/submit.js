@@ -1,11 +1,11 @@
-import { form } from "../utils/DOM-Constent/form-consts";
-import { dateInput } from "../utils/DOM-Constent/form-consts";
+import { form } from "../utils/DOM-Content/form-content";
+import { dateInput } from "../utils/DOM-Content/form-content";
 import { dialogDate } from "./dialog-date";
-import { dateInputMain } from "../utils/DOM-Constent/schedules-on-main-page-consts";
+import { dateInputMain } from "../utils/DOM-Content/schedules-on-main-page-content";
 import { renderSchedules } from "../loaders/render-schedules";
 import { registerSchedule } from "../../services/register-schedule";
 import { availableHoursFilter } from "./available-hours-filter";
-import { tutorNameInput, petNameInput, phoneInput, serviceDescriptionInput, timeSelect } from "../utils/DOM-Constent/form-consts";
+import { tutorNameInput, petNameInput, phoneInput, serviceDescriptionInput, timeSelect } from "../utils/DOM-Content/form-content";
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 

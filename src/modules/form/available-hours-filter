@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { openingHours } from "../../utils/opening-hours";
-import { selectHour } from "../utils/DOM-Constent/form-consts";
+import { selectHour } from "../utils/DOM-Content/form-content";
 import { apiConfig } from "../../services/api-config";
 
 export async function availableHoursFilter(dataSelected) {

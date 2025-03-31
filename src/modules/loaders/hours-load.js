@@ -1,5 +1,5 @@
 import { openingHours } from "../../utils/opening-hours"
-import { selectHour } from "../utils/DOM-Constent/form-consts"
+import { selectHour } from "../utils/DOM-Content/form-content"
 import dayjs from "dayjs";
 
 export async function hoursLoad(dataSelected) {
