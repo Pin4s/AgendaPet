@@ -5,25 +5,26 @@
   width: 100%;
 }
 
-.schedule > header {
+.schedule>header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
   align-items: center;
 }
 
-.schedule > header .title {
+.schedule>header .title {
   display: flex;
   flex-direction: column;
   gap: 7px;
 }
 
-.schedule > header h1 {
+.schedule>header h1 {
   font-size: 1.5rem;
   font-weight: 700;
+
 }
 
-.schedule > header p {
+.schedule>header p {
   color: #98959d;
   font-size: 0.87rem;
 }
@@ -141,7 +142,51 @@
     padding: 1.5rem;
   }
 
-  .schedule > header {
-    flex-direction: column;
+  .button-new-schedule {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 250px;
+
+    z-index: 100;
+    padding: 0;
+    box-sizing: border-box;
   }
+
+
+  .button-new-schedule button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    min-width: unset;
+    box-sizing: border-box;
+  }
+
+
+  .schedule header {
+    margin-top: 3rem;
+    display: flex;            
+    justify-content: space-between; 
+    align-items: center;      
+    flex-wrap: wrap;      
+    gap: 1rem;               
+    margin-bottom: 1.5rem;
+    
+  }
+  
+
+  .schedule header .title {
+    margin-right: 1rem;
+    flex-grow: 1; 
+  }
+
+  .schedule header .form-date-select {
+    flex-shrink: 0;
+  }
+
+  
 }
