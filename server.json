@@ -1,24 +1,6 @@
 {
   "schedules": [
     {
-      "id": "c1ad",
-      "client": "Pinas",
-      "pet": "Cehdar",
-      "phone": "(33) 99999-5294",
-      "description": "Tosa be a ndo ",
-      "date": "2025-03-28",
-      "hour": "11:00"
-    },
-    {
-      "id": "a3ce",
-      "client": "Fabin da silva",
-      "pet": "Mel",
-      "phone": "(33) 9 9999-5294",
-      "description": "Banho e tosa",
-      "date": "2025-03-28",
-      "hour": "19:00"
-    },
-    {
       "id": "3c42",
       "client": "Jão ped pina",
       "pet": "Mel",
@@ -37,15 +19,6 @@
       "hour": "12:00"
     },
     {
-      "id": "3881",
-      "client": "Pinas",
-      "pet": "Cehdar",
-      "phone": "(33) 9 9999-5294",
-      "description": "Tosa be a ndo ",
-      "date": "2025-03-28",
-      "hour": "13:00"
-    },
-    {
       "id": "1f7f",
       "client": "Pinas",
       "pet": "Cehdar",
@@ -53,15 +26,6 @@
       "description": "Tosa be a ndo ",
       "date": "2025-03-27",
       "hour": "13:00"
-    },
-    {
-      "id": "18c4",
-      "client": "Pinas",
-      "pet": "Cehdar",
-      "phone": "(33) 9 9999-5294",
-      "description": "Banho",
-      "date": "2025-03-28",
-      "hour": "15:00"
     },
     {
       "id": "83bf",

@@ -1,11 +1,11 @@
 import { form } from "../utils/DOM-Constent/form-consts";
-import { dialogDate } from "../scripts";
+import { dateInput } from "../utils/DOM-Constent/form-consts";
+import { dialogDate } from "./dialog-date";
 import { dateInputMain } from "../utils/DOM-Constent/schedules-on-main-page-consts";
 import { renderSchedules } from "../loaders/render-schedules";
 import { registerSchedule } from "../../services/register-schedule";
-import { availableHoursFlter } from "../scripts";
-
-
+import { availableHoursFilter } from "./available-hours-filter";
+import { tutorNameInput, petNameInput, phoneInput, serviceDescriptionInput, timeSelect } from "../utils/DOM-Constent/form-consts";
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -16,14 +16,14 @@ form.addEventListener("submit", async (event) => {
         pet: petNameInput.value,
         phone: phoneInput.value,
         description: serviceDescriptionInput.value,
-        date: selectedDateValue, // Usa o valor preservado
+        date: selectedDateValue, 
         hour: timeSelect.value,
     }
 
     for (const key in formData) {
         if (formData.hasOwnProperty(key)) {
             const inputElement = document.getElementById(key);
-            if (inputElement && key !== 'date') { // Não limpa o campo de data
+            if (inputElement && key !== 'date') { 
                 inputElement.value = ""
             }
         }
@@ -31,7 +31,7 @@ form.addEventListener("submit", async (event) => {
 
     await registerSchedule(formData)
     renderSchedules(dateInputMain.value)
-    availableHoursFlter(selectedDateValue)
+    availableHoursFilter(selectedDateValue)
     dialogDate(selectedDateValue)
 
 })

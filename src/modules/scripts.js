@@ -1,39 +1,21 @@
 import dayjs from "dayjs";
-import { openingHours } from "../utils/opening-hours";
-import { registerSchedule } from "../services/register-schedule";
-import { apiConfig } from "../services/api-config";
-
 
 const today = dayjs(new Date()).format("YYYY-MM-DD");
 
-//Form do dialog
-const form = document.querySelector(".form");
-
-//Constantes relativas EXCLUSIVAMENTE A ABERTURA do #dialog
 const dialog = document.getElementById("dialog");
 const containerBlur = document.querySelector(".container-blur");
 const dialogButton = document.querySelector(".button-new-schedule button");
 
-//Constantes relativas aos inputs de DENTRO do #dialog
-const tutorNameInput = document.getElementById("client");
-const petNameInput = document.getElementById("pet");
 const phoneInput = document.getElementById("phone");
-const serviceDescriptionInput = document.getElementById("description");
 const dateInput = document.getElementById("date");
-const timeSelect = document.getElementById("hours");
-
-const selectHour = document.getElementById("hours");
-// Elementos da página principal para renderizar os agendamentos
 const dateInputMain = document.querySelector('.form-date-select .input input[type="date"].date');
-const periodMorningList = document.getElementById('period-morning');
-const periodAfternoonList = document.getElementById('period-afternoon');
-const periodNightList = document.getElementById('period-night');
+
 
 //Variavel que recebe o valor do date input
 let selectedDate = dateInput.value;
 
 //JA FOI
-export function todayDate() {
+/*export function todayDate() {
     dateInputMain.value = dayjs(new Date()).format("YYYY-MM-DD");
     console.log(
         "Data da 1 pagina \nMensagem gerada por: todayDate()",
@@ -42,32 +24,32 @@ export function todayDate() {
     );
 
     return dateInputMain;
-}
+}*/
 
 dialog.addEventListener("toggle", () => {
     const hideButton = dialogButton.style.display;
 
     if (hideButton === "none") {
-        dialogButton.style.display = "block";
+        dialogButton.style.display = "block"
     } else {
-        dialogButton.style.display = "none";
+        dialogButton.style.display = "none"
     }
 
-    dialog.classList.toggle("open");
-    containerBlur.classList.toggle("open");
+    dialog.classList.toggle("open")
+    containerBlur.classList.toggle("open")
 });
 
 dateInput.addEventListener("change", () => {
     const data = dateInput.value
-
+    availableHoursFilter(data)
     dialogDate(dateInput.value)
-    console.log("Data selecionada:", data);
+    console.log("Data selecionada:", data)
     return data
 
 })
 
 //JA FOI
-form.addEventListener("submit", async (event) => {
+/*form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const selectedDateValue = dateInput.value
@@ -95,18 +77,18 @@ form.addEventListener("submit", async (event) => {
     availableHoursFlter(selectedDateValue)
     dialogDate(selectedDateValue)
 
-})
+})*/
 
 //JA FOI
-export function dialogDate(date) {
+/*export function dialogDate(date) {
     dateInput.value = date
     console.log("Data do dialog", dateInput.value, dateInput);
 
     dateInput.setAttribute("min", today);
-}
+}*/
 
 //JA FOI
-export async function availableHoursFlter(dataSelected) {
+/*export async function availableHoursFlter(dataSelected) {
     try {
         selectHour.innerHTML = ""
 
@@ -153,10 +135,10 @@ export async function availableHoursFlter(dataSelected) {
     } catch (error) {
         console.log(error)
     }
-}
+}*/
 
 //JA FOI
-export function blockHoursPast() {
+/*export function blockHoursPast() {
 
     const now = dayjs();
     const hour = now.format("HH:mm");
@@ -174,10 +156,10 @@ export function blockHoursPast() {
 
     console.log("VALOR DE 'TODAY': ", today);
     console.log("Valor de date.input: ", dateInput.value);
-}
+}*/
 
 //JA FOI
-function createScheduleItem(schedule) {
+/*function createScheduleItem(schedule) {
     const listItem = document.createElement('li');
     listItem.dataset.id = schedule.id
 
@@ -225,10 +207,10 @@ function createScheduleItem(schedule) {
     listItem.appendChild(removeButtonSpan);
 
     return listItem;
-}
+}*/
 
 //JA FOI
-async function renderSchedules(date) {
+/*async function renderSchedules(date) {
 
     periodMorningList.innerHTML = '';
     periodAfternoonList.innerHTML = '';
@@ -286,10 +268,10 @@ async function renderSchedules(date) {
         console.log("Não foi possivel renderizar os itens. ", error);
         alert("Houve um erro. Não foi possível renderizar os itens");
     }
-}
+}*/
 
 //JA FOI EM API
-export async function removeSchedule(id) {
+/*export async function removeSchedule(id) {
     try {
         await fetch(`${apiConfig.baseURL}/schedules/${id}`, {
             method: "DELETE",
@@ -298,10 +280,72 @@ export async function removeSchedule(id) {
         console.log(erro)
         alert("NãO FOI POSSIVEL CANCELAR")
     }
-}
+}*/
 
 
 phoneInput.addEventListener("input", (event) => {
+    let numericValue = event.target.value.replace(/\D/g, '')
+
+
+    const maxLength = 11
+    numericValue = numericValue.slice(0, maxLength)
+
+
+    let formattedValue = numericValue
+    const len = numericValue.length
+
+    if (len === 0) {
+        formattedValue = ''
+    } else if (len <= 2) {
+
+        formattedValue = numericValue.replace(/^(\d{1,2})/, '($1')
+    } else if (len === 3) {
+
+        formattedValue = numericValue.replace(/^(\d{2})(\d{1})/, '($1) $2')
+    } else if (len <= 7) {
+    
+        formattedValue = numericValue.replace(/^(\d{2})(\d{1})(\d{1,4})/, '($1) $2 $3')
+    } else {
+
+        formattedValue = numericValue.replace(/^(\d{2})(\d{1})(\d{4})(\d{1,4})/, '($1) $2 $3-$4')
+    }
+
+    event.target.value = formattedValue;
+});
+
+
+phoneInput.addEventListener("paste", (event) => {
+
+    event.preventDefault();
+
+
+    const pasteData = (event.clipboardData || window.clipboardData).getData('text')
+
+    const numericPasteData = pasteData.replace(/\D/g, '')
+
+    let currentValue = event.target.value.replace(/\D/g, '')
+    let combinedValue = (currentValue + numericPasteData).slice(0, 11)
+
+
+    let formattedCombinedValue = combinedValue
+    const combinedLen = combinedValue.length
+
+     if (combinedLen === 0) {
+        formattedCombinedValue = '';
+    } else if (combinedLen <= 2) {
+        formattedCombinedValue = combinedValue.replace(/^(\d{1,2})/, '($1')
+    } else if (combinedLen === 3) {
+        formattedCombinedValue = combinedValue.replace(/^(\d{2})(\d{1})/, '($1) $2')
+    } else if (combinedLen <= 7) {
+        formattedCombinedValue = combinedValue.replace(/^(\d{2})(\d{1})(\d{1,4})/, '($1) $2 $3')
+    } else {
+        formattedCombinedValue = combinedValue.replace(/^(\d{2})(\d{1})(\d{4})(\d{1,4})/, '($1) $2 $3-$4')
+    }
+
+    event.target.value = formattedCombinedValue;
+});
+
+/*phoneInput.addEventListener("input", (event) => {
     let phoneValue = event.target.value;
 
     phoneValue = phoneValue.replace(/\D/g, '');
@@ -318,23 +362,30 @@ phoneInput.addEventListener("input", (event) => {
     }
 
     event.target.value = phoneValue;
-});
+});*/
 
 
 dateInputMain.addEventListener("change", () => {
-    selectedDate = dateInputMain.value;
+    selectedDate = dateInputMain.value
     renderSchedules(selectedDate);
 });
 
 //JA FOI
-window.addEventListener("DOMContentLoaded", () => {
+/*window.addEventListener("DOMContentLoaded", () => {
     renderSchedules(dateInputMain.value);
 
 
-})
+})*/
 
 //vai pra scripts.js
+
+import { todayDate } from "./schedule/today-date";
+import { dialogDate } from "./form/dialog-date";
+import { renderSchedules } from "./loaders/render-schedules";
+import { availableHoursFilter } from "./form/available-hours-filter";
+import { blockHoursPast } from "./form/block-hours-past";
+
 todayDate();
 dialogDate(today);
-availableHoursFlter(dateInput.value);
+availableHoursFilter(dateInput.value);
 blockHoursPast();

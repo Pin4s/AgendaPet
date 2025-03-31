@@ -2,10 +2,12 @@ import { periodMorningList, periodAfternoonList, periodNightList } from "../util
 import { createScheduleItem } from "./create-schedule-item";
 import { dateInputMain } from "../utils/DOM-Constent/schedules-on-main-page-consts";
 import { apiConfig } from "../../services/api-config";
+import { todayDate } from "../schedule/today-date";
+import dayjs from "dayjs";
 
 window.addEventListener("DOMContentLoaded", async () => {
+    todayDate()
     await renderSchedules(dateInputMain.value);
-
 
 })
 

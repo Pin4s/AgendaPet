@@ -1,8 +1,9 @@
-import { openingHours } from "../../utils/opening-hours"
-import { selectHour } from "../utils/DOM-Constent/form-consts"
 import dayjs from "dayjs";
+import { openingHours } from "../../utils/opening-hours";
+import { selectHour } from "../utils/DOM-Constent/form-consts";
+import { apiConfig } from "../../services/api-config";
 
-export async function hoursLoad(dataSelected) {
+export async function availableHoursFilter(dataSelected) {
     try {
         selectHour.innerHTML = ""
 
