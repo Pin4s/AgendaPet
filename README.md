@@ -43,8 +43,11 @@ npm run dev
 
 
 
-https://github.com/user-attachments/assets/d8d877e1-c457-49a0-80f2-03dcde5b481d
 
+
+
+
+https://github.com/user-attachments/assets/068340ab-532e-4201-8f07-1482f0dcc93c
 
 
 
