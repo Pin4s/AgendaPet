@@ -40,3 +40,12 @@ npm run server
 
 -Inicie a aplicação:
 npm run dev
+
+
+
+https://github.com/user-attachments/assets/d8d877e1-c457-49a0-80f2-03dcde5b481d
+
+
+
+
+
